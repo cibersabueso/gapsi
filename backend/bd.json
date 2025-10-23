@@ -1,0 +1,30 @@
+{
+  "proveedores": [
+    {
+      "id": 1,
+      "nombre": "Proveedor Demo 1",
+      "razonSocial": "Demo S.A. de C.V.",
+      "direccion": "Av. Principal 123, Ciudad de México"
+    },
+    {
+      "id": 2,
+      "nombre": "Proveedor Demo 2",
+      "razonSocial": "Comercial Demo S.A.",
+      "direccion": "Calle Secundaria 456, Guadalajara"
+    },
+    {
+      "id": 3,
+      "nombre": "Proveedor Demo 3",
+      "razonSocial": "Distribuidora Demo S.C.",
+      "direccion": "Boulevard Principal 789, Monterrey"
+    },
+    {
+      "id": 4,
+      "nombre": "Enrique",
+      "razonSocial": "123",
+      "direccion": "lima"
+    }
+  ],
+  "version": "0.0.1",
+  "welcomeMessage": "Bienvenido Candidato 01"
+}
