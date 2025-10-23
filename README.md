@@ -1,156 +1,266 @@
 # e-Commerce Gapsi - Examen Práctico FullStack
 
-Aplicación FullStack desarrollada con React v19 y Node.js v22 para la administración de proveedores de Gapsi e-Commerce.
+Aplicación FullStack desarrollada con React y Node.js para la administración de proveedores de Gapsi e-Commerce.
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Backend
 - Node.js v22.21.0
-- Koa (Framework web)
-- Koa Router
-- Koa Bodyparser
-- CORS
+- Koa - Framework web minimalista
+- Koa Router - Manejo de rutas
+- Koa Bodyparser - Parser de body JSON
+- @koa/cors - Configuración CORS
+- Nodemon - Auto-reload en desarrollo
 
 ### Frontend
 - React v19
-- Material-UI (MUI)
-- Axios
-- React Virtualized
+- Material-UI (MUI) - Componentes UI
+- Axios - Cliente HTTP
+- React Virtualized - Virtual scroll
 
-## 📋 Requisitos Previos
+## Requisitos Previos
 
-- Node.js v14 o superior (instalado: v22.21.0)
-- npm v6 o superior (instalado: v10.9.4)
+- Node.js v14 o superior
+- npm v6 o superior
 - Git
 
-## 🔧 Instalación y Configuración
+## Instalación
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd GAPSI/codigo
+git clone https://github.com/cibersabueso/gapsi.git
+cd gapsi
 ```
 
-### 2. Instalar dependencias del Backend
+### 2. Instalar Backend
 ```bash
 cd backend
 npm install
 ```
 
-### 3. Instalar dependencias del Frontend
+### 3. Instalar Frontend
 ```bash
-cd ../frontend
+cd frontend
 npm install
 ```
 
-## ▶️ Ejecutar la Aplicación
+## Ejecutar la Aplicación
 
-### Iniciar el Backend
+### Backend (Terminal 1)
 ```bash
-# Desde la carpeta backend
+cd backend
 npm run dev
 ```
 
-El servidor backend estará corriendo en: http://localhost:3001
+Servidor: http://localhost:3001
 
-### Iniciar el Frontend
+### Frontend (Terminal 2)
 ```bash
-# Desde la carpeta frontend (en otra terminal)
+cd frontend
 npm start
 ```
 
-La aplicación frontend se abrirá automáticamente en: http://localhost:3000
+Aplicación: http://localhost:3000
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 ```
-GAPSI/
-├── codigo/
-│   ├── backend/
-│   │   ├── src/
-│   │   │   ├── controllers/     # Controladores (MVC Pattern)
-│   │   │   ├── routes/          # Rutas de la API
-│   │   │   ├── services/        # Servicios (Repository Pattern)
-│   │   │   ├── config.js        # Configuración (Singleton Pattern)
-│   │   │   └── index.js         # Punto de entrada
-│   │   ├── bd.json              # Base de datos JSON
-│   │   └── package.json
-│   │
-│   └── frontend/
-│       ├── public/
-│       │   ├── logo.png
-│       │   ├── icon.png
-│       │   └── service-worker.js # Service Worker para PWA
-│       ├── src/
-│       │   ├── components/      # Componentes React
-│       │   ├── pages/           # Páginas principales
-│       │   ├── services/        # Servicios API (Singleton Pattern)
-│       │   ├── App.js
-│       │   └── index.js
-│       └── package.json
+gapsi/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/          # MVC Controllers
+│   │   │   └── proveedorController.js
+│   │   ├── routes/               # API Routes
+│   │   │   └── proveedorRoutes.js
+│   │   ├── services/             # Business Logic (Repository Pattern)
+│   │   │   └── proveedorService.js
+│   │   ├── config.js             # Configuration (Singleton Pattern)
+│   │   └── index.js              # Entry point
+│   ├── bd.json                   # JSON Database
+│   ├── postman_collection.json   # API Documentation
+│   └── package.json
+│
+├── frontend/
+│   ├── public/
+│   │   ├── logo.png
+│   │   ├── icon.png
+│   │   ├── service-worker.js     # PWA Service Worker
+│   │   └── manifest.json         # PWA Manifest
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── WelcomePage.jsx
+│   │   │   └── ProveedoresList.jsx
+│   │   ├── pages/
+│   │   │   └── MainPage.jsx
+│   │   ├── services/
+│   │   │   └── api.js            # API Service (Singleton Pattern)
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
 │
 └── README.md
 ```
 
-## 🎯 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ### Backend
-- ✅ API REST con Koa
-- ✅ CRUD de proveedores (Create, Read, Delete)
-- ✅ Paginación de resultados
-- ✅ Validación de duplicados por nombre
-- ✅ Base de datos JSON (bd.json)
-- ✅ Endpoint de bienvenida con versión
-- ✅ CORS configurado
+- API REST con Koa framework
+- CRUD completo de proveedores (Create, Read, Delete)
+- Paginación de resultados
+- Validación de duplicados por nombre
+- Base de datos JSON (bd.json)
+- Endpoint de bienvenida con versión
+- CORS habilitado
+- Manejo de errores global
 
 ### Frontend
-- ✅ Pantalla de bienvenida con logo
-- ✅ Lista de proveedores con Material-UI
-- ✅ Paginación de proveedores
-- ✅ Agregar proveedores (con validación)
-- ✅ Eliminar proveedores
-- ✅ PWA con Service Worker (caché de recursos)
-- ✅ Diseño responsive
+- Pantalla de bienvenida con logo y versión (desde API)
+- Lista de proveedores con Material-UI
+- Paginación funcional
+- Agregar proveedores con validación
+- Eliminar proveedores con confirmación
+- PWA con Service Worker
+- Diseño responsive
+- Header con menú
 
-## 🏗️ Patrones de Diseño Implementados
+### Features Adicionales
+- PWA - Service Worker para caché offline
+- Material-UI implementado
+- Patrones de diseño documentados
+- Documentación Postman
 
-1. **MVC (Model-View-Controller)**: Estructura del backend separando controladores, servicios y rutas
-2. **Repository Pattern**: Capa de servicios que abstrae el acceso a datos (proveedorService.js)
-3. **Singleton Pattern**: Configuración única (config.js) e instancia única de API (api.js)
+## Patrones de Diseño
 
-## 📡 Endpoints de la API
+### 1. MVC (Model-View-Controller)
+**Ubicación:** Backend estructura
+- **Model:** proveedorService.js (acceso a datos)
+- **Controller:** proveedorController.js (lógica de negocio)
+- **Routes:** proveedorRoutes.js (definición de endpoints)
+
+### 2. Repository Pattern
+**Ubicación:** backend/src/services/proveedorService.js
+- Abstrae el acceso a la base de datos JSON
+- Centraliza operaciones CRUD
+- Facilita cambio de fuente de datos
+
+### 3. Singleton Pattern
+**Ubicación:**
+- backend/src/config.js - Configuración única
+- frontend/src/services/api.js - Instancia única de Axios
+
+## API Endpoints
 
 ### GET /api/welcome
-Obtiene el mensaje de bienvenida y versión
+```json
+Response: {
+  "success": true,
+  "message": "Bienvenido Candidato 01",
+  "version": "0.0.1"
+}
+```
 
 ### GET /api/proveedores?page=1&limit=10
-Lista proveedores con paginación
+```json
+Response: {
+  "success": true,
+  "data": [...],
+  "page": 1,
+  "limit": 10,
+  "total": 3,
+  "totalPages": 1
+}
+```
 
 ### POST /api/proveedores
-Agrega un nuevo proveedor
 ```json
-{
-  "nombre": "Nombre del Proveedor",
-  "razonSocial": "Razón Social S.A.",
-  "direccion": "Dirección completa"
+Request: {
+  "nombre": "Proveedor Nuevo",
+  "razonSocial": "Empresa S.A.",
+  "direccion": "Calle 123"
+}
+
+Response: {
+  "success": true,
+  "message": "Proveedor agregado exitosamente",
+  "data": {...}
 }
 ```
 
 ### DELETE /api/proveedores/:id
-Elimina un proveedor por ID
+```json
+Response: {
+  "success": true,
+  "message": "Proveedor eliminado exitosamente",
+  "data": {...}
+}
+```
 
-## 🌐 PWA Features
+## Documentación Postman
 
-- ✅ Service Worker para caché offline
-- ✅ Manifest.json configurado
-- ✅ Iconos de aplicación
-- ✅ Instalable en dispositivos móviles
+La colección de Postman está disponible en: backend/postman_collection.json
 
-## 👨‍💻 Autor
+Importa este archivo en Postman para probar todos los endpoints.
+
+## PWA Features
+
+- Service Worker registrado
+- Caché de recursos estáticos
+- Manifest.json configurado
+- Instalable en dispositivos móviles
+- Funciona offline (recursos cacheados)
+
+## Testing
+
+### Probar Backend (con curl o Postman)
+```bash
+# Welcome endpoint
+curl http://localhost:3001/api/welcome
+
+# List proveedores
+curl http://localhost:3001/api/proveedores
+
+# Add proveedor
+curl -X POST http://localhost:3001/api/proveedores \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Test","razonSocial":"Test SA","direccion":"Test 123"}'
+
+# Delete proveedor
+curl -X DELETE http://localhost:3001/api/proveedores/1
+```
+
+## Notas de Desarrollo
+
+- Base de datos: Archivo JSON (bd.json)
+- Puerto Backend: 3001
+- Puerto Frontend: 3000
+- La validación de duplicados se hace en el backend
+- El Service Worker se registra automáticamente en producción
+
+## Troubleshooting
+
+### Backend no inicia
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### Frontend no compila
+```bash
+cd frontend
+rm -rf node_modules package-lock.json
+npm install
+npm start
+```
+
+### CORS errors
+- Verificar que el backend esté corriendo en puerto 3001
+- Revisar configuración CORS en backend/src/config.js
+
+## Autor
 
 Enrique G.
 
-## 📝 Notas
+## Licencia
 
-- La aplicación usa un archivo JSON (bd.json) como base de datos
-- El backend debe estar corriendo para que el frontend funcione correctamente
-- La validación de duplicados se realiza en el backend
+ISC

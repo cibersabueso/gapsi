@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "Gapsi e-Commerce API",
+    "description": "Documentación de API REST para administración de proveedores",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Welcome",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/welcome",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "welcome"]
+        },
+        "description": "Obtiene el mensaje de bienvenida y la versión de la aplicación"
+      }
+    },
+    {
+      "name": "Get Proveedores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/proveedores?page=1&limit=10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "proveedores"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Lista todos los proveedores con paginación"
+      }
+    },
+    {
+      "name": "Add Proveedor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Nuevo Proveedor\",\n  \"razonSocial\": \"Nueva Empresa S.A. de C.V.\",\n  \"direccion\": \"Calle Nueva 123, Ciudad\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/proveedores",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "proveedores"]
+        },
+        "description": "Agrega un nuevo proveedor. Valida que el nombre no esté duplicado."
+      }
+    },
+    {
+      "name": "Delete Proveedor",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/proveedores/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "proveedores", "1"]
+        },
+        "description": "Elimina un proveedor por su ID"
+      }
+    }
+  ]
+}
